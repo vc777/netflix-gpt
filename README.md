@@ -19,3 +19,7 @@
 -NetflixGPT
     -SearchBar
     -Movie Suggestions
+
+
+-Install React Router DOM
+    ~npm i -D react-router-dom
