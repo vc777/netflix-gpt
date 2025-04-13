@@ -102,7 +102,7 @@ const Login = () => {
         {signIn && <input type='password' placeholder="Confirm Password" className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/> }
         
         <p className='text-red-500 text-sm'>{errorMessage}</p>
-        <button className='text-sm p-4 my-6 bg-red-700 w-full rounded-lg' onClick={handleValidationCheck}>
+        <button className='text-sm p-4 my-6 bg-orange-700 w-full rounded-lg' onClick={handleValidationCheck}>
            {signIn ? "Sign up" : "Sign in" } 
         </button>
         <p onClick={toggleSignin} className='text-xs text-start cursor-pointer'>{signIn ?  "Already a member. Sign In" : "New to Netflix? Sign up now."} </p>
