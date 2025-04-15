@@ -3,10 +3,15 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebaseConfig';
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import appStore from '../utils/appStore';
 
 const Browse = () => {
 
   const navigate =  useNavigate();
+  const user = useSelector(appStore => appStore.user);
+  console.log(user, "idhe");
+  
   const handleSignout = () => {
 
     signOut(auth).then(() => {
@@ -32,8 +37,12 @@ const Browse = () => {
     </button>
     </div>
 </div>
+
 <div className='fixed' >
+
+<p className='absolute text-center mx-80 my-32'>Welcome {user.displayName}</p>
         <img  src='https://img.freepik.com/premium-vector/farmer-horse-plowing-field-sunrise_218660-244.jpg?w=1380'/>
+        
         </div>
 </>
   )

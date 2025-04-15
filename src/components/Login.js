@@ -4,7 +4,10 @@ import { checkvalidData } from '../utils/checkValidation';
 import { auth } from '../utils/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { Navigate, useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 const Login = () => {
+    const dispatch =  useDispatch();
     const navigate =  useNavigate();
     const [signIn, setSignIn] = useState(false);
     const email =  useRef(null);
@@ -54,6 +57,8 @@ const Login = () => {
                     displayName:  displayName.current.value
                   }).then (() => {
                     console.log("Profile Name is updated as : ", displayName.current.value);
+                    const {uid, email, displayName } = auth.currentUser;
+                    dispatch(addUser({uid:uid, email:email, displayName:displayName}))
                     navigate('/browse');
    
                   })
