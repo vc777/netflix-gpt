@@ -13,18 +13,11 @@ const Login = () => {
     const displayName = useRef(null);
     const password =  useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    const [count, setCount] = useState(0);
+    
 
     const toggleSignin = () => {
         setSignIn(!signIn);
     }
-
-    // const handleValidationCheck = () => {
-       
-    //    const message = checkvalidData(userName.current.value, email.current.value, password.current.value);
-    //     setErrorMessage(message);
-        
-    // }
 
     const handleValidationCheck = () => {
       // let message;
@@ -75,9 +68,7 @@ const Login = () => {
                 .then((userCredential) => {
                   // Signed in 
                   const user = userCredential.user;
-                  console.log(user);
-                  
-                  // ...
+
                 })
                 .catch((error) => {
                   const errorCode = error.code;

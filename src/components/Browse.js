@@ -5,22 +5,27 @@ import { auth } from '../utils/firebaseConfig';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import appStore from '../utils/appStore';
+import Prompt from './Prompt';
 
 const Browse = () => {
 
   const navigate =  useNavigate();
-  const user = useSelector(appStore => appStore.user);
-  console.log(user, "idhe");
-  
+   
   const handleSignout = () => {
 
-    signOut(auth).then(() => {
+    signOutAction();
+  }
+
+  async function signOutAction() {
+    try{
+   await signOut(auth);
       navigate("/");
+      // window.location.reload();
       console.log("signout API call executed   ");
       
-    }).catch((error) => {
+    } catch(error) {
       navigate('/browse')
-    });
+    }
   }
   return (<>
     <div className='absolute w-full px-8 py-2 bg-gradient-to-b from-orange-400 z-10 rounded-lg flex justify-between items-center'>
@@ -40,12 +45,7 @@ const Browse = () => {
     </div>
 </div>
 
-<div className='fixed' >
-
-<p className='absolute text-center mx-80 my-32'>Welcome {user.displayName}</p>
-        <img  src='https://img.freepik.com/premium-vector/farmer-horse-plowing-field-sunrise_218660-244.jpg?w=1380'/>
-        
-        </div>
+<Prompt />
 </>
   )
 }
