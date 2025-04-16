@@ -16,6 +16,8 @@ const Browse = () => {
 
     signOut(auth).then(() => {
       navigate("/");
+      console.log("signout API call executed   ");
+      
     }).catch((error) => {
       navigate('/browse')
     });
