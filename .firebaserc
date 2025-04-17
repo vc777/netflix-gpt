@@ -1,8 +1,8 @@
 {
   "projects": {
-    "default": "netflixgpt-cd131",
-    "staging": "netflixgpt-cd131",
-    "build": "netflixgpt-cd131"
+    "default": "netflixgpt-95426",
+    "staging": "netflixgpt-95426",
+    "build": "netflixgpt-95426"
   },
   "targets": {},
   "etags": {}

@@ -4,6 +4,7 @@ import { auth } from '../utils/firebaseConfig';
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router';
+import { BrowseLeftLogo } from '../utils/constants';
 
 
 const Header = () => {
@@ -11,7 +12,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    // Set up the listener
+  const unSubscribe =  onAuthStateChanged(auth, (user) => {
         if (user) {
           const {uid, email, displayName } = user;
           dispatch(addUser({uid:uid, email:email, displayName:displayName}))
@@ -24,13 +26,17 @@ const Header = () => {
         }
       });
 
+      return () => {
+        unSubscribe();
+      }
+
 },[])
 
   return (
     <div className='absolute w-full px-8 py-2 bg-gradient-to-b from-orange-400 z-10 rounded-lg flex justify-between items-center'>
     {/* Logo on the left */}
     <a href='/'>
-        <img className='w-44 object-contain bg-transparent' src='https://dosmioss.com/admin/img/logo.png' alt='logo'/>
+        <img className='w-44 object-contain bg-transparent' src={BrowseLeftLogo} alt='logo'/>
     </a>
 
     {/* Logo on the right */}

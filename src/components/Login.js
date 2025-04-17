@@ -5,6 +5,7 @@ import { auth } from '../utils/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BrowseLeftLogo, MainBGImage } from '../utils/constants';
 
 const Login = () => {
     const dispatch =  useDispatch();
@@ -85,7 +86,7 @@ const Login = () => {
         <Header/>
 
         <div className='fixed' >
-        <img  src='https://img.freepik.com/premium-vector/farmer-horse-plowing-field-sunrise_218660-244.jpg?w=1380'/>
+        <img  src={MainBGImage}/>
         </div>
         
         <form onSubmit={(e) => e.preventDefault()} className='w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-50'>
