@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+#item {
+animation-duration:2s;
+transition: opacity 1s ease-in-out;
+}

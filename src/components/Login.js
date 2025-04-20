@@ -49,7 +49,6 @@ const Login = () => {
                   return updateProfile(user, {
                     displayName:  displayName.current.value
                   }).then (() => {
-                    console.log("Profile Name is updated as : ", displayName.current.value);
                     const {uid, email, displayName } = auth.currentUser;
                     dispatch(addUser({uid:uid, email:email, displayName:displayName}))
       
