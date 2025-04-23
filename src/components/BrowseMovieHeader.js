@@ -29,17 +29,18 @@ const BrowseMovieHeader = () => {
     }
     
   return (
-    <div className='absolute w-full px-8 py-2 bg-gradient-to-b to-transparent from-white bg-opacity-85 z-10 rounded-lg flex justify-between items-center'>
+    <div className='absolute w-full px-8 py-2 mt-56  flex justify-center items-center gap-2'>
     {/* Logo on the left */}
+    <div className='text-center '>
     <a href='/browse'>
-        <img className='w-44 object-contain' src={BrowseLeftLogo} alt='logo'/>
+        <img className='w-44 object-contain ' src={BrowseLeftLogo} alt='logo'/>
     </a>
-
+    </div>
     {/* Logo on the right */}
-    <div className='flex'>
-    <a href='/browse'>
+    <div className='flex  text-end'>
+    {/* <a href='/browse' className=' bg-white rounded-xl'>
         <img className='w-6 m-2' src={BrowseRightLogo} alt='logo'/>
-    </a>
+    </a> */}
     <button onClick={handleSignout} className='text-xs m-2 text-orange-700'>
     <ExitToAppIcon/>
     </button>

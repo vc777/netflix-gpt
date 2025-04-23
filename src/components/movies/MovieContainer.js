@@ -3,10 +3,12 @@ import BrowseHeader from '../BrowseHeader'
 import useFetchMovieList from '../../hooks/useFetchMovieList'
 import PrimaryContainer from './PrimaryContainer';
 import SecondaryContainer from './SecondaryContainer';
+import useFetchTopRating from '../../hooks/useFetchTopRating';
 
 
 const MovieContainer = () => {
   useFetchMovieList();
+  useFetchTopRating();
 
   return (
     <div>

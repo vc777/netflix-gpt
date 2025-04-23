@@ -24,7 +24,7 @@ const [imageID, setimageID] =  useState(null);
      }
 // text-white bg-gradient-to-r from-black
   return (
-    <div className='pt-96 px-12 pr-6 w-1/2 bg-gradient-to-r from-black text-white absolute'>
+    <div className='pt-64 px-12 pr-6 w-1/2 bg-gradient-to-r from-black text-white absolute'>
         <img src={`https://image.tmdb.org/t/p/w154/${imageID}`} className='rounded-3xl ml-20 ' />
         <h1 className='w-1/2 text-3xl font-bold'>{title}</h1>
         <p className='py-6 text-sm w-1/2 text-pretty font-medium'>{info}</p>

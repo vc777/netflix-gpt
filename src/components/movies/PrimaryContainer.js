@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import VideoBackGround from './VideoBackGround';
 import VideoTitle from './VideoTitle';
 import BrowseHeader from '../BrowseHeader';
 import BrowseMovieHeader from '../BrowseMovieHeader';
+import { addMovieList } from '../../utils/movieSlice';
 
 const PrimaryContainer = () => {
-    const [currentIndex, setcurrentIndex] = useState(0);
+  const movies =  useSelector((store) => store.movie?.getMovieList);
+  const dispatch =  useDispatch();
+  const [currentIndex, setcurrentIndex] = useState(0);
 
-    const movies =  useSelector((store) => store.movie?.getMovieList);
-    
+
 
    
     useEffect(() => {
@@ -24,7 +26,7 @@ const PrimaryContainer = () => {
 
     }, [movies]);
     if(!movies) return;
-
+ dispatch(addMovieList(movies));
   const mainMovies = movies[currentIndex];
     
   const {original_title, overview, id} = mainMovies;
