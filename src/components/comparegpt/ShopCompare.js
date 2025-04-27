@@ -1,13 +1,16 @@
-import { ClassNames } from '@emotion/react'
-import { Button } from '@mui/material'
-import { green } from '@mui/material/colors'
 import React from 'react'
+import { Button } from '@mui/material'
+import useHelper from '../../utils/useHelpers';
+
 
 const ShopCompare = () => {
+  const LS = useHelper();
+  
+
   return (
     <div>
         <Button variant="contained" color="success">
-        ShopCompare
+        {LS.shopCompare}
         </Button>
     </div>
   )

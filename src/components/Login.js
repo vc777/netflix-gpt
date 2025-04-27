@@ -3,18 +3,21 @@ import Header from './Header'
 import { checkvalidData } from '../utils/checkValidation';
 import { auth } from '../utils/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { BrowseLeftLogo, MainBGImage } from '../utils/constants';
+import { BrowseLeftLogo, language, MainBGImage } from '../utils/constants';
+import useHelper, { langSelect, LS } from '../utils/useHelpers';
 
 const Login = () => {
+    
     const dispatch =  useDispatch();
+    const LS = useHelper();
     const [signIn, setSignIn] = useState(false);
     const email =  useRef(null);
     const displayName = useRef(null);
     const password =  useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    
+
 
     const toggleSignin = () => {
         setSignIn(!signIn);
@@ -89,17 +92,17 @@ const Login = () => {
         </div>
         
         <form onSubmit={(e) => e.preventDefault()} className='w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-50'>
-        <h1 className='font-bold text-3xl text-left' >{signIn ?  "Sign up" : "Sign In"  }</h1>
-        {signIn && <input ref={displayName} type='text' placeholder="Name" className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>}        
-        <input ref={email} type='text' placeholder={signIn ? "Email Address/ Phone Number": "Email Address"  } className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>
-        <input ref={password} type='password' placeholder={signIn ? "Password" : "Enter Password" } className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>
-        {signIn && <input type='password' placeholder="Confirm Password" className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/> }
+        <h1 className='font-bold text-3xl text-left' >{signIn ?  `${LS.signUp}` : `${LS.signIn}`  }</h1>
+        {signIn && <input ref={displayName} type='text' placeholder={LS.username} className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>}        
+        <input ref={email} type='text' placeholder={signIn ? `${LS.emailIdorPhone}`: `${LS.emailId}`  } className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>
+        <input ref={password} type='password' placeholder={LS.password} className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/>
+        {signIn && <input type='password' placeholder={LS.cpassword} className='text-sm font-normal p-3 my-2 w-full bg-gray-700'/> }
         
         <p className='text-red-500 text-sm'>{errorMessage}</p>
         <button className='text-sm p-4 my-6 bg-orange-700 w-full rounded-lg' onClick={handleValidationCheck}>
-           {signIn ? "Sign up" : "Sign in" } 
+           {signIn ? `${LS.signUp}` : `${LS.signIn}` } 
         </button>
-        <p onClick={toggleSignin} className='text-xs text-start cursor-pointer'>{signIn ?  "Already a member. Sign In" : "New to Netflix? Sign up now."} </p>
+        <p onClick={toggleSignin} className='text-xs text-start cursor-pointer'>{signIn ?  `${LS.alreadyUserMsg}` : `${LS.newtoNetflixmsg}`} </p>
         </form>
     </div>
   )

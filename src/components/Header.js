@@ -1,15 +1,17 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { auth } from '../utils/firebaseConfig';
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router';
-import { BrowseLeftLogo } from '../utils/constants';
+import { BrowseLeftLogo, SUPPORTED_LANGUAGES } from '../utils/constants';
+import useLanguageHook from '../hooks/useLanguage';
 
 
 const Header = () => {
   const dispatch =  useDispatch();
   const navigate = useNavigate();
+  const languageOptions =  useLanguageHook();
 
   useEffect(() => {
     // Set up the listener
@@ -38,9 +40,13 @@ const Header = () => {
     <a href='/'>
         <img className='w-44 object-contain bg-transparent' src={BrowseLeftLogo} alt='logo'/>
     </a>
-
     {/* Logo on the right */}
-   
+    
+   {/* {SUPPORTED_LANGUAGES.map((lang) =>  <option key={lang.id} value={lang.value}>{lang.name}</option>)} */}
+   {languageOptions}
+   {/* </select> */}
+
+ 
 </div>
   )
 }

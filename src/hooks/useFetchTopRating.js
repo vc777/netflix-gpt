@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { getOptions } from '../utils/constants'
 import { useDispatch } from 'react-redux'
-import { addMovieList, addTopRatingList } from '../utils/movieSlice'
+import { addTopRatingList } from '../utils/movieSlice'
 
 const useFetchTopRating = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-      getMoviesData();
+      getMoviesData()
     }, [])
     
     const getMoviesData = async() => {

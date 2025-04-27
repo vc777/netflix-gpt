@@ -1,11 +1,13 @@
 import { Button } from '@mui/material'
 import React from 'react'
+import useHelper from '../../utils/useHelpers';
 
 const Movie = () => {
+  const LS = useHelper();
   return (
     <div>
     <Button variant="contained">
-        Movies
+        {LS.movies}
         </Button>
     </div>
   )

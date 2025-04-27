@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import appStore from '../utils/appStore';
 import { BrowseLeftLogo, BrowseRightLogo } from '../utils/constants';
+import useLanguageHook from '../hooks/useLanguage';
 
 
 const BrowseHeader = () => {
 
     const navigate =  useNavigate();
-   
+    const languageOptions =  useLanguageHook();
     const handleSignout = () => {
   
       signOutAction();
@@ -37,6 +38,7 @@ const BrowseHeader = () => {
 
     {/* Logo on the right */}
     <div className='flex'>
+      {languageOptions}
     <a href='/browse'>
         <img className='w-6 m-2' src={BrowseRightLogo} alt='logo'/>
     </a>

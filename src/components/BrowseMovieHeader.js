@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import appStore from '../utils/appStore';
 import { BrowseLeftLogo, BrowseRightLogo } from '../utils/constants';
+import useLanguageHook from '../hooks/useLanguage';
 
 
 const BrowseMovieHeader = () => {
 
     const navigate =  useNavigate();
-   
+    const languageOptions =  useLanguageHook();
     const handleSignout = () => {
   
       signOutAction();

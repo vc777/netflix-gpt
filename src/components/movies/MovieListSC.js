@@ -3,8 +3,6 @@ import MovieCardSC from './MovieCardSC';
 
 const MovieListSC = ({title, movieList}) => {
     if(!movieList) return;
-//     const  titleFinal = movieList.poster_path;
-// console.log(titleFinal, "Final ra baba");
 
 
 
