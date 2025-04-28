@@ -1,15 +1,13 @@
 import React from 'react'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { signOut } from 'firebase/auth';
-import { auth } from '../utils/firebaseConfig';
+import { auth } from '../../utils/firebaseConfig';
 import { Link, useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
-import appStore from '../utils/appStore';
-import { BrowseLeftLogo, BrowseRightLogo } from '../utils/constants';
-import useLanguageHook from '../hooks/useLanguage';
+import { AILogo, BrowseLeftLogo, BrowseRightLogo } from '../../utils/constants';
+import useLanguageHook from '../../hooks/useLanguage';
 
 
-const BrowseMovieHeader = () => {
+const GPTHeader = () => {
 
     const navigate =  useNavigate();
     const languageOptions =  useLanguageHook();
@@ -30,20 +28,21 @@ const BrowseMovieHeader = () => {
     }
     
   return (
-        <div className='absolute w-full px-8 py-2 mt-56  flex justify-center items-center gap-2'>
+    <div className='absolute w-full px-8 py-2  bg-opacity-85 z-10 rounded-lg flex justify-between items-center'>
     {/* Logo on the left */}
-    <div className='text-center '>
-    <Link to={'/browse'}>
-    <a>
-        <img className='w-44 object-contain ' src={BrowseLeftLogo} alt='logo'/>
-    </a>
+    <Link to={'/'}>
+      <a>
+        <img className='w-24 object-contain' src={AILogo} alt='logo'/>
+      </a>
     </Link>
-    </div>
     {/* Logo on the right */}
-    <div className='flex  text-end'>
-    {/* <a href='/browse' className=' bg-white rounded-xl'>
+    <div className='flex'>
+      {languageOptions}
+      <Link to={'/'}>
+      <a>
         <img className='w-6 m-2' src={BrowseRightLogo} alt='logo'/>
-    </a> */}
+      </a>
+    </Link>
     <button onClick={handleSignout} className='text-xs m-2 text-orange-700'>
     <ExitToAppIcon/>
     </button>
@@ -52,4 +51,4 @@ const BrowseMovieHeader = () => {
   )
 }
 
-export default BrowseMovieHeader
+export default GPTHeader

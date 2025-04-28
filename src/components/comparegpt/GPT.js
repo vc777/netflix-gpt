@@ -1,8 +1,11 @@
 import React from 'react'
+import GPTMainPage from './GPTMainPage'
 
 const GPT = () => {
   return (
-    <div>GPT</div>
+    <div>
+        <GPTMainPage />
+    </div>
   )
 }
 

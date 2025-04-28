@@ -3,6 +3,9 @@ export const NetflixLogo = 'https://help.nflxext.com/helpcenter/OneTrust/oneTrus
 export const BrowseRightLogo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAbCAMAAABY1h8eAAAANlBMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAR2LVAAAAEXRSTlMAFC85CUIhS4NadpOkaPPnxJy2bA4AAAEhSURBVHgBjc5LbgMhEEXRW1+g6bLN/jcbN+pEsTLJmaHLk4p/En0zdf6ySAdwDeVTNkRJtDd1aR9rS9oYHGLzbKMI+WjVK7h49VnYT82kqgS1t4QaJsEtuD6rOYCE0MaUxmZYb5j8PkBGyj28dkk8ns/na0A4NT0AJAEC2tr6foABmPuBOsRax3iuJQR0VACFJNjRrvlAkkRyRz/MvqO+56By6B3Txndsr7UKyZy5oznddMfLYyVGVKYAKdTEIN7h8VgvCOoQ42IcM83v5QtUfDaCS+Bx0txVwwRSKTNJLm7kMQhlM4VeNDZUOM6G2wZ6Tjfh1px5TmXLcQ5S+dGENvvM0tHPWajyixlipWefw5KWfJBmDukgFvzhGqEWpvzPFytwCiPLZUEvAAAAAElFTkSuQmCC';
 export const MainBGImage = 'https://img.freepik.com/premium-vector/farmer-horse-plowing-field-sunrise_218660-244.jpg?w=1380';
 export const BrowseHeaderImage = 'https://play-lh.googleusercontent.com/dJZpl4Ab_JRW9fRh3AFa4z4pQfqnqN1wmdwmfTvRMfUp8eDNSecTI0OXO_d6RcD7Qzk=w480-h960-rw'
+export const AILogo = 'https://cdn.vectorstock.com/i/500p/33/66/artificial-intelligence-icon-sign-logo-vector-49693366.jpg';
+export const movieImage = 'https://thumbs.dreamstime.com/b/big-open-clapper-board-movie-reel-cinema-icon-set-movie-film-elements-flat-design-cinema-movie-time-flat-icons-f-95500226.jpg';
+export const gptImage = 'https://static.vecteezy.com/system/resources/previews/021/495/993/non_2x/chatgpt-openai-logo-icon-free-png.png';
 
 export const getOptions = {
   method: 'GET',
@@ -14,11 +17,11 @@ export const getOptions = {
 
   
 export const SUPPORTED_LANGUAGES = [
-  {id:0, value:"en", name:"English" },
-  {id:1, value:"hindi", name:"Hindi" },
-  {id:2, value:"telugu", name:"Telugu" },
-  {id:3, value:"hebrew", name:"Hebrew" },
-  {id:4, value:"china", name:"China" },
+  {identifier:"en", name:"English" },
+  {identifier:"hindi", name:"Hindi" },
+  {identifier:"telugu", name:"Telugu" },
+  {identifier:"hebrew", name:"Hebrew" },
+  {identifier:"china", name:"China" },
 
 ]
 
@@ -36,7 +39,9 @@ export const language = {
     alreadyUserMsg:"Already a member. Sign In",
     welcome:"Welcome",
     shopCompare:"Shop Compare",
-    movies: "Movies"
+    movies: "Movies",
+    promptMsg:'Enter the prompt here...',
+    submit:"Submit"
 
   },
   telugu: {
@@ -51,7 +56,9 @@ export const language = {
     alreadyUserMsg: "ఇప్పటికే సభ్యుడా? సైన్ ఇన్ చేయండి",
     welcome: "స్వాగతం",
     shopCompare: "షాప్ కంపేర్",
-    movies: "మూవీస్"
+    movies: "మూవీస్",
+    promptMsg: "ఇక్కడ ప్రాంప్ట్ నమోదు చేయండి..." ,
+    submit: "సబ్మిట్ చేయండి"
   },
   hindi: {
     signIn: "साइन इन करें",
@@ -65,7 +72,9 @@ export const language = {
     alreadyUserMsg: "पहले से सदस्य हैं? साइन इन करें।",
     welcome: "स्वागत है",
     shopCompare: "शॉप कंपेयर",
-    movies: "मूवीज़"
+    movies: "मूवीज़",
+    promptMsg: "यहाँ संकेत दर्ज करें..." ,
+    submit: "जमा करें"
   },
 hebrew:{
   signIn: "התחבר",
@@ -79,7 +88,9 @@ hebrew:{
   alreadyUserMsg: "כבר רשום? התחבר",
   welcome: "ברוך הבא",
   shopCompare: "שופ קומפר",
-  movies: "מוביז"
+  movies: "מוביז",
+  promptMsg: "הזן את ההנחיה כאן...",
+  submit: "שלח"
 },
 china: {
   signIn: "登录",
@@ -93,7 +104,9 @@ china: {
   alreadyUserMsg: "已经是会员？请登录",
   welcome: "欢迎",
   shopCompare: "购物比较 (gòu wù bǐ jiào)", 
-  movies: "电影 (diàn yǐng)"
+  movies: "电影 (diàn yǐng)",
+  promptMsg: "在这里输入提示..." ,
+  submit: "提交" 
 }    
   
 }
